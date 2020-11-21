@@ -91,9 +91,9 @@ public class StateTableView: UITableView {
         }
         self.mj_header = refreshHeader
         self.mj_footer = loadMoreFooter
-        self.mj_footer.isHidden = true
-        self.mj_header.setRefreshingTarget(self, refreshingAction: #selector(self.onRefresh))
-        self.mj_footer.setRefreshingTarget(self, refreshingAction: #selector(self.onLoadMore))
+        self.mj_footer?.isHidden = true
+        self.mj_header?.setRefreshingTarget(self, refreshingAction: #selector(self.onRefresh))
+        self.mj_footer?.setRefreshingTarget(self, refreshingAction: #selector(self.onLoadMore))
         emptyView?.addTapGesture(handler: { [weak self] (tap) in
             self?.beginRefresh()
             self?.showLoading()
@@ -106,7 +106,7 @@ public class StateTableView: UITableView {
 
         self.showContent()
         
-        self.mj_header.isAutomaticallyChangeAlpha = true
+        self.mj_header?.isAutomaticallyChangeAlpha = true
 
 
     }
@@ -183,10 +183,10 @@ public class StateTableView: UITableView {
     }
 
     public func setLoadMoreEnable(b: Bool) {
-        self.mj_footer.isHidden = !b;
+        self.mj_footer?.isHidden = !b;
     }
     public func setRefreshEnable(b: Bool) {
-        self.mj_header.isHidden = !b;
+        self.mj_header?.isHidden = !b;
     }
 
     private func useDefaultHeaderStyle() {
